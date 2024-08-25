@@ -50,7 +50,7 @@
 
 1. **소스 코드 클론**: 
    ```bash
-   git clone https://github.com/yourusername/happyjelly.git
+   git clone https://github.com/mylee-alley/happyJelly.git
    ```
 2. **필수 라이브러리 설치**:
    ```bash
