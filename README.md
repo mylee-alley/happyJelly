@@ -1,10 +1,14 @@
 # Happy Jelly 반려견 유치원 관리 시스템
 
-<div>  
-  [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.5.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
-  [![Oracle](https://img.shields.io/badge/Oracle-19c-red.svg)](https://www.oracle.com/database/)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<div>
+    <img src="https://img.shields.io/badge/Java-21.0.3-red.svg" alt="Java">
+    <img src="https://img.shields.io/badge/JavaScript-1.5-yellow.svg" alt="JavaScript">  
+    <img src="https://img.shields.io/badge/Oracle-19c-green.svg" alt="Oracle">  
+    <img src="https://img.shields.io/badge/CSS-3-blue.svg" alt="CSS">
+    <img src="https://img.shields.io/badge/SpringBoot-3.2.5-purple.svg" alt="SpringBoot">
+    <img src="https://img.shields.io/badge/HTML5-gray.svg" alt="HTML">
 </div>
+
 
 ## 프로젝트 소개
 
