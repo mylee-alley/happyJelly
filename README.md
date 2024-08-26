@@ -92,15 +92,17 @@
 - **문제**: 프로젝트에 맞게 추가 파라미터 받으려고 했으나 계속 null이 출력되는 현상
   - **해결**: controller의 `redirectUrl`과 service의 `approval_url` 경로 모두 수정하니 작동됨
 
-### 4. 회원 관리 관련
+### 4. 결제 및 구독 관리 관련
+
+- **문제**: 자동결제 관련 체크박스 체크 여부에 따라 체크하지 않았을 때 `@RequestParam`에서 오류 발생
+  - **해결**: 자동결제 옵션을 체크하지 않았을 경우를 처리하기 위해 `@RequestParam(value="autoPay", required=false)`로 설정하여, 체크박스가 체크되지 않은 경우 `null`로 처리하도록 하여 오류를 방지함.
+
+### 5. 회원 관리 관련
 
 - **문제**: 비밀번호 변경 시 필요한 컬럼 (newpassword)를 생성하고, `@NotEmpty` 선언했더니 일반 회원가입 시 NotEmpty 충족하지 못하여 오류 발생
   - **해결**: DTO에 회원가입 시 필요한 인터페이스 (`public interface Signup{}`)와 비밀번호 변경 시 필요한 인터페이스 (`public interface PasswordChange{}`)를 선언하고, 각각의 필드에 맞게 넣어줌
 
-- **문제**: checkbox 체크 여부에 따라 체크 안했을 시 `@RequestParam`에서 오류 발생
-  - **해결**: `@RequestParam(value="파라미터명", required="false")`로 변경하여 checkbox 체크 안 해서 null인 경우도 처리 가능하게 함
-
-- **문제**: 네이버 로그인 시 토큰 값이 주기적으로 변경되어 db에 이것을 username으로 입력 시 계정이 계속 생기는 것을 확인
+- **문제**: 네이버 로그인 시 토큰 값이 주기적으로 변경되어 DB에 이것을 username으로 입력 시 계정이 계속 생기는 것을 확인
   - **해결**: 이메일을 username으로 입력하는 것으로 변경
 
 이러한 트러블슈팅 경험을 통해 문제 해결 능력을 향상시키고, 다양한 기술적 이슈에 대한 이해도를 높일 수 있었습니다. 또한, 이 과정에서 Spring Boot, JPA, 외부 API 연동 등에 대한 실질적인 경험을 쌓을 수 있었습니다.
