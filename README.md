@@ -48,7 +48,7 @@
 
 ## 프로젝트에서의 역할
 
-저는 **Happy Jelly** 프로젝트에서 다음과 같은 중요한 역할을 담당하였습니다:
+저는 **Happy Jelly** 프로젝트에서 다음과 같은 역할을 담당하였습니다:
 
 1. **로그인 및 회원 관리**:
    - 다양한 사용자 권한에 따른 로그인 시스템 구현.
@@ -77,7 +77,8 @@
 
 프로젝트 진행 중 다양한 기술적 문제에 직면하였으며, 이를 해결하는 과정에서 많은 학습과 성장이 있었습니다. 주요 트러블슈팅 사례는 다음과 같습니다:
 
-### 1. DB 관련
+<details>
+<summary>1. DB 관련</summary>
 
 - **문제**: missing table, missing column
   - **해결**: `@JoinColumn` 명시 여부 확인
@@ -85,12 +86,18 @@
 - **문제**: 무한 순환 루프
   - **해결**: `@JsonBackReference`, `@JsonManagedReference`, `@ToString(exclude={참조필드명})` 어노테이션 사용
 
-### 2. Repository 관련
+</details>
+
+<details>
+<summary>2. Repository 관련</summary>
 
 - **문제**: DB에서 스네이크 표기법, Spring에서 카멜 표기법을 주로 써서 Repository `findBy` 생성 시 오류
   - **해결**: entity에 카멜 표기법으로 필드명 수정한 후 `@Column(name=스네이크 표기법)`으로 수정하여 DB와 엔티티 맞춤
 
-### 3. API 관련
+</details>
+
+<details>
+<summary>3. API 관련</summary>
 
 - **문제**: 매개변수로 쓴 `kakaoPayDTO`와 토큰 받아야 하는 `kakaoPayDTO`에서 같은 DTO를 사용하며 값이 덮어씌워짐
   - **해결**: 메서드 밖에 `kakaoPayDTO`를 따로 선언해주고, `this.kakaoPayDTO`로 매개변수와 구분
@@ -98,12 +105,18 @@
 - **문제**: 프로젝트에 맞게 추가 파라미터 받으려고 했으나 계속 null이 출력되는 현상
   - **해결**: controller의 `redirectUrl`과 service의 `approval_url` 경로 모두 수정하니 작동됨
 
-### 4. 결제 및 구독 관리 관련
+</details>
+
+<details>
+<summary>4. 결제 및 구독 관리 관련</summary>
 
 - **문제**: 자동결제 관련 체크박스 체크 여부에 따라 체크하지 않았을 때 `@RequestParam`에서 오류 발생
   - **해결**: 자동결제 옵션을 체크하지 않았을 경우를 처리하기 위해 `@RequestParam(value="autoPay", required=false)`로 설정하여, 체크박스가 체크되지 않은 경우 `null`로 처리하도록 하여 오류를 방지함.
 
-### 5. 회원 관리 관련
+</details>
+
+<details>
+<summary>5. 회원 관리 관련</summary>
 
 - **문제**: 비밀번호 변경 시 필요한 컬럼 (newpassword)를 생성하고, `@NotEmpty` 선언했더니 일반 회원가입 시 NotEmpty 충족하지 못하여 오류 발생
   - **해결**: DTO에 회원가입 시 필요한 인터페이스 (`public interface Signup{}`)와 비밀번호 변경 시 필요한 인터페이스 (`public interface PasswordChange{}`)를 선언하고, 각각의 필드에 맞게 넣어줌
@@ -111,4 +124,6 @@
 - **문제**: 네이버 로그인 시 토큰 값이 주기적으로 변경되어 DB에 이것을 username으로 입력 시 계정이 계속 생기는 것을 확인
   - **해결**: 이메일을 username으로 입력하는 것으로 변경
 
-이러한 트러블슈팅 경험을 통해 문제 해결 능력을 향상시키고, 다양한 기술적 이슈에 대한 이해도를 높일 수 있었습니다. 또한, 이 과정에서 Spring Boot, JPA, 외부 API 연동 등에 대한 실질적인 경험을 쌓을 수 있었습니다.
+</details>
+
+이와 같은 방식으로 각 섹션을 접었다 펼쳤다 할 수 있으며, 이를 통해 트러블슈팅 섹션의 가독성을 높이고, 필요한 정보를 보다 쉽게 확인할 수 있습니다.
